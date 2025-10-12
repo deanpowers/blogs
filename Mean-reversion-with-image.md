@@ -2,7 +2,7 @@ Mean Reversion with Images
 
 # Mean Reversion Trading Strategy
 
-![Mean Reversion Chart Example](./images/mean-graphic.jpeg)
+![Mean Reversion Chart Example](./mean-graphic.jpeg)
 
 ## Introduction to Mean Reversion
 
