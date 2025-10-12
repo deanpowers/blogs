@@ -15,9 +15,9 @@ This chart illustrates the mean reversion principle where prices tend to revert 
 - **Reversion**: The tendency to return to average
 
 
-# Welcome to Our Product
+# HubSpot Contact. cTA
 
-Check out this offer:
+Contact Us about our Telegram bot that uses mean reversion 
 
 <!— HubSpot CTA Code —>
 
