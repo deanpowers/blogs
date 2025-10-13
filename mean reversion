@@ -1,0 +1,213 @@
+—
+title: “Mean Reversion Explained”
+date: “2025-10-13”
+description: “SEO-friendly description”
+author: “Dean R. Powers”
+tags: [“DYDX”, “Mean Reversion”]
+published: true
+—
+
+BTC and ETH Mean Reversion 
+
+Core Concept: What is Mean Reversion?
+
+Mean reversion is the financial theory that suggests asset prices and financial metrics tend to move back toward their historical average or mean over time.
+
+Think of it like a rubber band:
+
+· When stretched too far in one direction, it tends to snap back
+· When compressed too much, it tends to expand back to its normal length
+
+In trading terms: Extreme moves are often followed by counter-moves toward the average.
+
+—
+
+The Three Components
+
+1. BTC/ETH Price Ratio
+
+Ratio = Price of BTC ÷ Price of ETH
+
+· This measures their relative value
+· A ratio of 20 means 1 BTC is worth 20 ETH
+· It filters out overall crypto market moves and focuses on the relationship between these two assets
+
+2. Historical Mean of the Ratio
+
+This is the average ratio over a chosen lookback period (e.g., 90 days, 1 year).
+Mean Ratio = (Sum of Daily Ratios) ÷ Number of Days
+
+3. Z-Score of the Ratio
+
+Z-Score = (Current Ratio - Mean Ratio) ÷ Standard Deviation
+
+· This normalizes how far the current ratio is from its mean
+· It tells you how “exceptional” the current deviation is
+
+—
+
+How Mean Reversion Works with the Z-Score
+
+The Mental Model
+
+```
+Extreme High Z-Score → Ratio is stretched → Expect snap back toward mean
+Extreme Low Z-Score → Ratio is compressed → Expect expansion toward mean
+```
+
+Practical Trading Process
+
+Step 1: Calculate the Z-Score
+
+```python
+# Example calculation
+current_ratio = 18.5
+mean_ratio = 15.0
+std_deviation = 1.5
+
+z_score = (18.5 - 15.0) / 1.5 = 2.33
+```
+
+Step 2: Interpret the Z-Score
+
+· Z > +2.0: Ratio is ~2+ standard deviations above mean → BTC overvalued relative to ETH
+· Z < -2.0: Ratio is ~2+ standard deviations below mean → ETH overvalued relative to BTC
+· Z ≈ 0: Ratio is near historical average
+
+Step 3: Execute Mean Reversion Trades
+
+Scenario A: High Positive Z-Score (+2.33)
+
+· Interpretation: BTC is statistically expensive relative to ETH
+· Mean Reversion Expectation: Ratio should decrease toward its mean
+· Trade: Short the Ratio (Bet on ETH outperforming BTC)
+  · Sell BTC
+  · Buy ETH
+  · Dollar-neutral position (equal $ value on both sides)
+
+Scenario B: Low Negative Z-Score (-2.1)
+
+· Interpretation: ETH is statistically expensive relative to BTC
+· Mean Reversion Expectation: Ratio should increase toward its mean
+· Trade: Long the Ratio (Bet on BTC outperforming ETH)
+  · Buy BTC
+  · Sell ETH
+  · Dollar-neutral position
+
+—
+
+Concrete Example
+
+Let’s walk through a real scenario:
+
+Historical Data (90-day lookback):
+
+· Mean BTC/ETH Ratio: 16.0
+· Standard Deviation: 2.0
+
+Current Market:
+
+· BTC Price: $40,000
+· ETH Price: $2,000
+· Current Ratio: 20.0 ($40,000 ÷ $2,000)
+
+Z-Score Calculation:
+
+```
+Z = (20.0 - 16.0) ÷ 2.0 = 2.0
+```
+
+Interpretation & Action:
+
+· Z-score of +2.0 indicates BTC is strongly overvalued vs ETH
+· Mean reversion probability is high
+· Execute Trade:
+  · Short $10,000 worth of BTC
+  · Long $10,000 worth of ETH
+  · Net market exposure: ~$0 (pure relative value trade)
+
+Expected Outcome:
+
+· Scenario 1: BTC falls to $38,000, ETH rises to $2,200 → Ratio = 17.3 (moving toward mean)
+· Scenario 2: BTC stays at $40,000, ETH rises to $2,350 → Ratio = 17.0 (moving toward mean)
+· Scenario 3: BTC falls to $36,000, ETH stays at $2,000 → Ratio = 18.0 (moving toward mean)
+
+In all cases, the trade profits if the ratio decreases, regardless of absolute price direction.
+
+—
+
+Why Does Mean Reversion Work with BTC/ETH?
+
+1. Psychological Levels: Traders notice extreme valuations and take counter-positions
+2. Profit-Taking: After strong outperformance, traders rotate into the underperforming asset
+3. Fundamental Gravity: While BTC and ETH have different use cases, they’re still correlated crypto assets
+4. Market Structure: Large players execute statistical arbitrage, pushing prices toward equilibrium
+
+—
+
+Critical Considerations & Risks
+
+1. Lookback Period Sensitivity
+
+```python
+# Different periods give different signals
+short_term_mean = 15.0  # 30-day lookback  
+long_term_mean = 18.0   # 1-year lookback
+```
+
+· Short lookbacks: More signals, but more false signals
+· Long lookbacks: Fewer signals, but potentially more reliable
+
+2. Regime Changes
+
+The “mean” can shift permanently due to:
+
+· Ethereum’s transition to Proof-of-Stake
+· Bitcoin ETF approvals
+· Major protocol upgrades
+· Changing market structure
+
+3. The Most Dangerous Phrase: “This Time Is Different”
+
+Sometimes, extreme moves are justified by fundamentals and mean reversion fails. The ratio can stay extended for long periods during strong trends.
+
+4. Risk Management Essentials
+
+· Stop-losses: Exit if z-score becomes even more extreme (e.g., goes from +2.5 to +3.0)
+· Position sizing: Don’t bet too much on any single mean reversion
+· Correlation breaks: Monitor if the fundamental relationship changes
+
+—
+
+Advanced Mean Reversion Strategies
+
+Dynamic Z-Score Bands:
+
+· Adjust threshold based on recent volatility
+· Use tighter bands in low-volatility regimes
+· Use wider bands in high-volatility regimes
+
+Multiple Timeframe Confirmation:
+
+· Check z-score on daily, weekly, and monthly timeframes
+· Only trade when multiple timeframes align
+
+Momentum Filter:
+
+· Avoid mean reversion trades when strong momentum is present
+· Use additional indicators to confirm mean reversion is likely
+
+—
+
+Summary
+
+The mean reversion framework using the BTC/ETH z-score is essentially:
+
+1. Measure how extreme the current ratio is vs history (z-score)
+2. Bet that extremes will normalize (mean revert)
+3. Execute dollar-neutral pairs trades (long one asset, short the other)
+4. Profit from the convergence, regardless of overall market direction
+
+This approach transforms the problem from “Will BTC go up or down?” to “Will BTC outperform ETH?” – which is often a more statistically predictable question.
+
+The key insight is that while absolute prices are hard to predict, relative relationships between correlated assets often exhibit more predictable, mean-reverting behavior.
