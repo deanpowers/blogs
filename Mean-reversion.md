@@ -1,4 +1,3 @@
-Blog post mean reversion 
 
 —
 layout: post
