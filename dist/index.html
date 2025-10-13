@@ -1,41 +1,308 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f5f5f5;
-        }
-        .container {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Basic SEO -->
+  <title>Mean Reversion Explained — Dean Powers</title>
+  <meta name="description" content="SEO-friendly description" />
+  <meta name="author" content="Dean Powers" />
+  <meta name="keywords" content="DYDX, Mean Reversion, BTC, ETH, Z-score, pairs trading, crypto" />
+  <link rel="canonical" href="https://your-site.example/mean-reversion-explained" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Mean Reversion Explained — Dean Powers" />
+  <meta property="og:description" content="SEO-friendly description" />
+  <meta property="og:site_name" content="Your Site Name" />
+  <meta property="article:author" content="Dean Powers" />
+  <meta property="article:published_time" content="2025-10-13T00:00:00Z" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mean Reversion Explained — Dean Powers" />
+  <meta name="twitter:description" content="SEO-friendly description" />
+
+  <!-- Structured data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://your-site.example/mean-reversion-explained"
+    },
+    "headline": "Mean Reversion Explained",
+    "description": "SEO-friendly description",
+    "image": "https://your-site.example/assets/mean-reversion-social.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Dean Powers"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Your Site Name",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://your-site.example/assets/logo.png"
+      }
+    },
+    "datePublished": "2025-10-13",
+    "keywords": "DYDX, Mean Reversion, BTC, ETH"
+  }
+  </script>
+
+  <!-- Minimal, clean CSS -->
+  <style>
+    :root{
+      --bg:#ffffff; --text:#111827; --muted:#6b7280; --accent:#0f172a;
+      --code-bg:#0b1220; --code-text:#f8fafc; --card:#f8fafc;
+    }
+    [data-theme="dark"]{
+      --bg:#071021; --text:#e6eef6; --muted:#9aa7b7; --accent:#66d9ef;
+      --code-bg:#07101a; --code-text:#dff6ff; --card:#071429;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased;
+    }
+    .container{max-width:900px; margin:48px auto; padding:24px;}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+    .site-title{font-weight:700;font-size:18px;letter-spacing:.2px}
+    .meta{color:var(--muted); font-size:14px}
+    article{background:transparent}
+    h1{margin:0 0 8px 0;font-size:28px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .tag{background:rgba(0,0,0,0.04);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+    .hero{margin:18px 0 28px;border-left:4px solid rgba(0,0,0,0.06);padding:12px 16px;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.02))}
+    h2{margin-top:28px}
+    p{margin:12px 0}
+    ul{margin:8px 0 16px 20px}
+    pre{overflow:auto;background:var(--code-bg);color:var(--code-text);padding:16px;border-radius:8px;margin:16px 0;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,monospace;font-size:13px}
+    code.inline{background:rgba(0,0,0,0.06);padding:2px 6px;border-radius:4px;font-family:ui-monospace,monospace}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.06);margin:24px 0}
+    footer{margin-top:36px;color:var(--muted);font-size:13px;border-top:1px solid rgba(0,0,0,0.04);padding-top:16px}
+    .actions{display:flex;gap:8px;align-items:center}
+    button{cursor:pointer;border:0;background:transparent;padding:6px 10px;border-radius:8px;font-weight:600}
+    .copy-btn{background:rgba(0,0,0,0.06)}
+    .small{font-size:13px;color:var(--muted)}
+    @media (max-width:640px){.container{padding:16px} h1{font-size:22px}}
+  </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Welcome to My Page</h1>
-        <p>This HTML file was created in Working Copy!</p>
-        
-        <!-- HubSpot CTA Example -->
-        <div style="text-align: center; margin: 2rem 0; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-            <h3>Download Our Guide</h3>
-            <script charset="utf-8" src="//js.hscta.net/cta/current.js"></script>
-            <script>
-                hbspt.cta.load(12345, 'abc123-xxxx-xxxx-xxxx-xxxxxxxxxxxx', {
-                    alignment: 'center'
-                });
-            </script>
-        </div>
-    </div>
+<body data-theme="light">
+  <div class="container">
+    <header>
+      <div>
+        <div class="site-title">Your Site Name</div>
+        <div class="meta">Dean Powers · Oct 13, 2025</div>
+      </div>
+      <div class="actions">
+        <button id="toggleTheme" title="Toggle dark mode">🌙</button>
+      </div>
+    </header>
+
+    <article>
+      <h1>Mean Reversion Explained</h1>
+
+      <div class="tags" aria-hidden="true">
+        <div class="tag">DYDX</div>
+        <div class="tag">Mean Reversion</div>
+      </div>
+
+      <div class="hero card" role="note">
+        <strong>BTC and ETH Mean Reversion</strong>
+        <p class="small" style="margin-top:8px">A practical guide to using the BTC/ETH price ratio and z-score for pairs trading and relative-value strategies.</p>
+      </div>
+
+      <section>
+        <h2>Core Concept: What is Mean Reversion?</h2>
+        <p>Mean reversion is the financial theory that suggests asset prices and financial metrics tend to move back toward their historical average or mean over time.</p>
+        <p>Think of it like a rubber band:</p>
+        <ul>
+          <li>When stretched too far in one direction, it tends to snap back</li>
+          <li>When compressed too much, it tends to expand back to its normal length</li>
+        </ul>
+        <p>In trading terms: Extreme moves are often followed by counter-moves toward the average.</p>
+      </section>
+
+      <section>
+        <h2>The Three Components</h2>
+        <ol>
+          <li>
+            <strong>BTC/ETH Price Ratio</strong><br/>
+            Ratio = Price of BTC ÷ Price of ETH. This measures relative value — a ratio of 20 means 1 BTC = 20 ETH.
+          </li>
+          <li>
+            <strong>Historical Mean of the Ratio</strong><br/>
+            The average over a chosen lookback period (e.g., 90 days, 1 year). <code class="inline">Mean Ratio = (Sum of Daily Ratios) ÷ Number of Days</code>
+          </li>
+          <li>
+            <strong>Z-Score of the Ratio</strong><br/>
+            <code class="inline">Z-Score = (Current Ratio - Mean Ratio) ÷ Standard Deviation</code> — normalizes how far the current ratio is from its mean.
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>How Mean Reversion Works with the Z-Score</h2>
+        <p><strong>The Mental Model</strong></p>
+        <pre><code>Extreme High Z-Score → Ratio is stretched → Expect snap back toward mean
+Extreme Low Z-Score → Ratio is compressed → Expect expansion toward mean</code></pre>
+
+        <h3>Practical Trading Process</h3>
+        <p><strong>Step 1: Calculate the Z-Score</strong></p>
+        <pre><code># Example calculation
+current_ratio = 18.5
+mean_ratio = 15.0
+std_deviation = 1.5
+
+z_score = (18.5 - 15.0) / 1.5  # = 2.33
+</code></pre>
+
+        <p><strong>Step 2: Interpret the Z-Score</strong></p>
+        <ul>
+          <li><code class="inline">Z &gt; +2.0</code>: ratio ~2+ std dev above mean → BTC overvalued relative to ETH</li>
+          <li><code class="inline">Z &lt; -2.0</code>: ratio ~2+ std dev below mean → ETH overvalued relative to BTC</li>
+          <li><code class="inline">Z ≈ 0</code>: ratio near historical average</li>
+        </ul>
+
+        <p><strong>Step 3: Execute Mean Reversion Trades</strong></p>
+        <p><strong>Scenario A — High Positive Z-Score (+2.33)</strong></p>
+        <ul>
+          <li>Interpretation: BTC is statistically expensive relative to ETH</li>
+          <li>Trade: Short the ratio — Sell BTC and Buy ETH (dollar-neutral)</li>
+        </ul>
+
+        <p><strong>Scenario B — Low Negative Z-Score (-2.1)</strong></p>
+        <ul>
+          <li>Interpretation: ETH is statistically expensive relative to BTC</li>
+          <li>Trade: Long the ratio — Buy BTC and Sell ETH (dollar-neutral)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Concrete Example</h2>
+        <p><strong>90-day lookback</strong></p>
+        <ul>
+          <li>Mean BTC/ETH Ratio: 16.0</li>
+          <li>Standard Deviation: 2.0</li>
+        </ul>
+        <p><strong>Current Market</strong></p>
+        <ul>
+          <li>BTC Price: $40,000</li>
+          <li>ETH Price: $2,000</li>
+          <li>Current Ratio: 20.0</li>
+        </ul>
+
+        <pre><code>Z = (20.0 - 16.0) ÷ 2.0 = 2.0</code></pre>
+
+        <p>Interpretation: Z = +2.0 indicates BTC is strongly overvalued vs ETH. Example trade: short $10,000 BTC and long $10,000 ETH (dollar-neutral). The trade profits if the ratio decreases toward the mean regardless of absolute market direction.</p>
+      </section>
+
+      <section>
+        <h2>Why Does Mean Reversion Work with BTC/ETH?</h2>
+        <ol>
+          <li>Psychological Levels — traders notice extremes and take counter-positions</li>
+          <li>Profit-Taking — rotation into the underperforming asset</li>
+          <li>Fundamental Gravity — BTC and ETH remain correlated crypto assets</li>
+          <li>Market Structure — statistical arbitrageurs help push prices toward equilibrium</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Critical Considerations & Risks</h2>
+        <h3>1. Lookback Period Sensitivity</h3>
+        <pre><code># Different periods give different signals
+short_term_mean = 15.0  # 30-day lookback
+long_term_mean  = 18.0  # 1-year lookback
+</code></pre>
+        <p>Short lookbacks produce more frequent but noisier signals; long lookbacks are smoother but slower.</p>
+
+        <h3>2. Regime Changes</h3>
+        <p>The mean can shift permanently due to events like protocol upgrades, ETF approvals, or structural changes.</p>
+
+        <h3>3. "This Time Is Different"</h3>
+        <p>Sometimes extremes are justified; extended regimes can persist — don’t assume mean reversion always wins.</p>
+
+        <h3>4. Risk Management Essentials</h3>
+        <ul>
+          <li>Stop-losses (e.g., exit if z-score moves from +2.5 to +3.0)</li>
+          <li>Position sizing — avoid oversized bets</li>
+          <li>Monitor correlation breaks</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Advanced Mean Reversion Strategies</h2>
+        <ul>
+          <li><strong>Dynamic Z-Score Bands:</strong> adjust thresholds to recent volatility</li>
+          <li><strong>Multiple Timeframe Confirmation:</strong> align daily/weekly/monthly z-scores</li>
+          <li><strong>Momentum Filter:</strong> avoid reversion trades when strong momentum exists</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Summary</h2>
+        <p>The mean reversion framework using the BTC/ETH z-score is:</p>
+        <ol>
+          <li>Measure how extreme the ratio is vs history (z-score)</li>
+          <li>Bet that extremes will normalize</li>
+          <li>Execute dollar-neutral pair trades</li>
+          <li>Profit from convergence regardless of absolute price direction</li>
+        </ol>
+        <p class="small">Key insight: predicting relative performance (BTC vs ETH) is often more statistically tractable than predicting absolute price moves.</p>
+      </section>
+
+      <footer>
+        <p>Author: <strong>Dean Powers</strong> · Published: <time datetime="2025-10-13">Oct 13, 2025</time></p>
+        <p class="small">Tags: DYDX, Mean Reversion</p>
+      </footer>
+    </article>
+  </div>
+
+  <!-- Optional small script for theme toggle and copy code buttons -->
+  <script>
+    (function(){
+      const btn = document.getElementById('toggleTheme');
+      const root = document.documentElement;
+      // Use localStorage to persist theme preference
+      const setTheme = (t) => {
+        document.body.setAttribute('data-theme', t);
+        btn.textContent = t === 'dark' ? '☀️' : '🌙';
+        localStorage.setItem('theme', t);
+      };
+      const initial = localStorage.getItem('theme') || 'light';
+      setTheme(initial);
+
+      btn.addEventListener('click', () => {
+        const current = document.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      // Add copy buttons to code blocks (optional)
+      document.querySelectorAll('pre').forEach(pre => {
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.style.float = 'right';
+        btn.style.marginTop = '-44px';
+        btn.title = 'Copy code';
+        btn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(pre.textContent);
+            btn.textContent = 'Copied!';
+            setTimeout(()=> btn.textContent = 'Copy', 1500);
+          } catch(e) {
+            btn.textContent = 'Error';
+            setTimeout(()=> btn.textContent = 'Copy', 1500);
+          }
+        });
+        pre.style.position = 'relative';
+        pre.prepend(btn);
+      });
+    })();
+  </script>
 </body>
 </html>
