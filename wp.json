@@ -1,0 +1,125 @@
+[
+    {
+        "id": 10,
+        "date": "2025-10-14T10:13:25",
+        "date_gmt": "2025-10-14T10:13:25",
+        "guid": {
+            "rendered": "https://zojaxblogs.wpenginepowered.com/?p=10"
+        },
+        "modified": "2025-10-14T11:27:31",
+        "modified_gmt": "2025-10-14T11:27:31",
+        "slug": "bot-pricing-2",
+        "status": "publish",
+        "type": "post",
+        "link": "https://zojaxblogs.wpenginepowered.com/bot-pricing-2/",
+        "title": {
+            "rendered": "Bot Pricing"
+        },
+        "content": {
+            "rendered": "\u003Cp\u003EThere is no charge for use of the bot. Instead, we charge 20% of any profits following the traditional 80/20 fee model of investment fund managers. Our bot uses statistical indicators for building our trading algorithm to open long/short positions in BTC/ETTH including:\u003C/p\u003E\n\u003Cp\u003EZ-score\u003Cbr /\u003E\nRSI\u003Cbr /\u003E\nBollinger Bands\u003Cbr /\u003E\nBTC/ETH Price Ratio\u003C/p\u003E\n\u003Cp\u003EThe following table shows the profit distributions for various trade sizes It assumes that the bot uses 5:1 leverage and closes all positions when the net profit of both positions reaches one percent. (.001)\u003C/p\u003E\n",
+            "protected": false
+        },
+        "excerpt": {
+            "rendered": "\u003Cp\u003EThere is no charge for use of the bot. Instead, we charge 20% of any profits following the traditional 80/20 fee model of investment fund managers. Our bot uses statistical indicators for building our trading algorithm to open long/short positions in BTC/ETTH including: Z-score RSI Bollinger Bands BTC/ETH Price Ratio The following table shows the &hellip;\u003C/p\u003E\n",
+            "protected": false
+        },
+        "author": 1,
+        "featured_media": 0,
+        "comment_status": "closed",
+        "ping_status": "open",
+        "sticky": false,
+        "template": "",
+        "format": "standard",
+        "meta": {
+            "_genesis_block_theme_hide_title": false,
+            "footnotes": ""
+        },
+        "categories": [
+            2
+        ],
+        "tags": [
+            3
+        ],
+        "class_list": {
+            "0": "post-10",
+            "1": "post",
+            "2": "type-post",
+            "3": "status-publish",
+            "4": "format-standard",
+            "5": "hentry",
+            "6": "category-b0t",
+            "7": "tag-bot",
+            "9": "without-featured-image"
+        },
+        "featured_image_src": null,
+        "featured_image_src_square": null,
+        "author_info": {
+            "display_name": "zojaxblogs",
+            "author_link": "https://zojaxblogs.wpenginepowered.com/author/zojaxblogs/"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://zojaxblogs.wpenginepowered.com/wp-json/wp/v2/posts/10",
+                    "targetHints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://zojaxblogs.wpenginepowered.com/wp-json/wp/v2/posts"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://zojaxblogs.wpenginepowered.com/wp-json/wp/v2/types/post"
+                }
+            ],
+            "author": [
+                {
+                    "embeddable": true,
+                    "href": "https://zojaxblogs.wpenginepowered.com/wp-json/wp/v2/users/1"
+                }
+            ],
+            "replies": [
+                {
+                    "embeddable": true,
+                    "href": "https://zojaxblogs.wpenginepowered.com/wp-json/wp/v2/comments?post=10"
+                }
+            ],
+            "version-history": [
+                {
+                    "count": 0,
+                    "href": "https://zojaxblogs.wpenginepowered.com/wp-json/wp/v2/posts/10/revisions"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://zojaxblogs.wpenginepowered.com/wp-json/wp/v2/media?parent=10"
+                }
+            ],
+            "wp:term": [
+                {
+                    "taxonomy": "category",
+                    "embeddable": true,
+                    "href": "https://zojaxblogs.wpenginepowered.com/wp-json/wp/v2/categories?post=10"
+                },
+                {
+                    "taxonomy": "post_tag",
+                    "embeddable": true,
+                    "href": "https://zojaxblogs.wpenginepowered.com/wp-json/wp/v2/tags?post=10"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        }
+    }
+]
